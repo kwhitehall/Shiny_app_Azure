@@ -8,8 +8,20 @@ The R code for the Shiny App is leveraged from the article ["How to select the b
 1. In the [Portal](www.portal.azure.com), deploy a Data Science Virtual Machine (DSVM) with Ubuntu. As the Azure DSVMs come with Docker, R, Azure CLI and other useful tools already installed, this will be used as our working environment.
 2. Log into the VM, create a folder for the app - **My_app**
 3. Grab the R code for the Shiny App from the [Björn Bos' Github repo](https://github.com/bjoernbos/linear_model_selection) and unzip into **My_app**
-4. Create a Dockerfile in the main folder **My_app**
-5. Add configuration files for the Shiny app – shiny_server.conf and shiny-server.sh to the folder **My_app**. The file structure should look like: 
+4. Create a [Dockerfile](https://github.com/kwhitehall/Shiny_app_Azure/blob/master/Dockerfile) in the main folder **My_app**. [Dockerfile](https://github.com/kwhitehall/Shiny_app_Azure/blob/master/Dockerfile) given here is a template leveraged from the [official source](https://github.com/rocker-org/shiny).
+5. Add configuration files for the Shiny app – [shiny_server.conf](https://github.com/kwhitehall/Shiny_app_Azure/blob/master/shiny-server.conf) and [shiny-server.sh](https://github.com/kwhitehall/Shiny_app_Azure/blob/master/shiny-server.sh) from above to the folder **My_app**. The file structure should look like: 
+
+            My_appp
+              - app/
+                  - server.R
+                  - ui.R
+                  - global.r
+                  - about.html
+                  - data.csv
+              - Dockerfile
+              - shiny-server.conf
+              - shiny-server.sh
+                  
 ### Build the Docker image
 Navigate to your folder **My_app** and run the following command
       ``` 
@@ -64,8 +76,8 @@ Up to this point, your app is available to anyone via the DSVM URL (www.DSVM_IP:
     d.	Verify the image has been pushed in the portal by looking under the Repositories for your app. (Or using Azure CLI commands)   
     e.	Turning on permissions for the last step: In the Portal, navigate to the ***Access keys*** under ***Settings*** and click “Enable” under Admin user (this is necessary to log in with Docker). 
     
-11.	Deploy container via Azure Web App for Container
-    a.	In portal create the resource ***Web App for containers***. The name that your choose where will be the name of your app i.e. myShiny.azurewebsites.net. Make container a Linux container.  Choose the appropriate App service plan. In Configure container for image source, choose Azure Container Registry.
+11.	Deploy container via Azure Web App for Container.
+In Portal create the resource ***Web App for containers***. The name that your choose where will be the name of your app i.e. myShiny.azurewebsites.net. Make container a Linux container.  Choose the appropriate App service plan. In Configure container for image source, choose Azure Container Registry.
       i.	Choose the correct ACR from the dropdown box
       ii.	Choose the correct image. 
       iii.	The tag i.e. version. (v1 in this example. If none was added, the tag is latest by default)
