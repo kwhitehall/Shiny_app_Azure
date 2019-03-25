@@ -72,7 +72,7 @@ You may need to open up the port on the webserver on your own. Up to this point 
 
 #### OR Deploy in PaaS environment leveraging ACR and Web Apps     
 11.	Add docker container to Azure Container Registry.
-(So now we have our docker container, let’s utilize Azure Container Registry (ACR) for private container management. Azure Container Registry is your private Docker registry in Azure.) These steps can also be completed on [command line]( https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr) 
+In Portal create an Azure Containter Registry resource. (So now we have our docker container, let’s utilize Azure Container Registry (ACR) for private container management. Azure Container Registry is your private Docker registry in Azure.) These steps can also be completed on [command line]( https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr) 
 
 a. Create ***Azure Container Registry*** in the Portal.
     
