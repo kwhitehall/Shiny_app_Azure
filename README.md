@@ -28,7 +28,7 @@ The R code for the Shiny App is leveraged from the article ["How to select the b
       docker build -t My_app . 
       ```
 
-### C Deploy the app online
+### C: Deploy the app online
 #### Deploy in DSVM 
 7.	Open up the port on your DSVM to allow the traffic using Azure CLI. For this app we use port 3838.
 
@@ -50,7 +50,7 @@ Once you have successfully logged in, type:
     
 Up to this point, your app is available to anyone online via the DSVM URL (www.DSVM_IP:3838). But here we assume that this DSVM will be decommissioned so we need to host our app elsewhere.
 
-### OR Transfer Shiny App to a web server and deploy online
+#### OR Transfer Shiny App to a web server and deploy online
 Login to the Azure CLI  
 
       ```
@@ -70,7 +70,7 @@ Login to the Azure CLI
      ```
 You may need to open up the port on the webserver on your own. Up to this point then, your app would be available to anyone online via the webserver URL (www.webserver_IP).
 
-### OR Deploy in PaaS environment leveraging ACR and Web Apps     
+#### OR Deploy in PaaS environment leveraging ACR and Web Apps     
 11.	Add docker container to Azure Container Registry.
 (So now we have our docker container, let’s utilize Azure Container Registry (ACR) for private container management. Azure Container Registry is your private Docker registry in Azure.) These steps can also be completed on [command line]( https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr) 
 
