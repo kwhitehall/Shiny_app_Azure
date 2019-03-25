@@ -72,7 +72,7 @@ You may need to open up the port on the webserver on your own. Up to this point 
 
 #### OR Deploy in PaaS environment leveraging ACR and Web Apps     
 11.	Add docker container to Azure Container Registry.
-In Portal create an Azure Containter Registry resource. (So now we have our docker container, let’s utilize Azure Container Registry (ACR) for private container management. Azure Container Registry is your private Docker registry in Azure.) These steps can also be completed on [command line]( https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr) 
+(So now we have our docker container, let’s utilize Azure Container Registry (ACR) for private container management. Azure Container Registry is your private Docker registry in Azure.) These steps can also be completed on [command line]( https://docs.microsoft.com/en-us/azure/container-instances/container-instances-tutorial-prepare-acr) 
 
 a. Create ***Azure Container Registry*** in the Portal.
     
@@ -93,10 +93,14 @@ c. Tag the docker image and push
     
 12.	Deploy container via Azure Web App for Container.
 In Portal create the resource ***Web App for containers***. The name that your choose where will be the name of your app i.e. myShiny.azurewebsites.net. Make container a Linux container.  Choose the appropriate App service plan. In Configure container for image source, choose Azure Container Registry.
-      i.	Choose the correct ACR from the dropdown box
-      ii.	Choose the correct image. 
-      iii.	The tag i.e. version. (v1 in this example. If none was added, the tag is latest by default)
-      iv.	Deploy the resource
+
+a.          Choose the correct ACR from the dropdown box
+
+b.          Choose the correct image.
+
+c.	The tag i.e. version. (v1 in this example. If none was added, the tag is latest by default)
+
+d.	Deploy the resource
 
 **Access your app online! Navigate to www.<your_app_name>.azurewebsites.net**
 At this point, you can tear down the DSVM if you haven't already. 
