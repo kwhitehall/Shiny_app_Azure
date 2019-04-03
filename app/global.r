@@ -1,5 +1,12 @@
-#Import data
-data <- read.csv("data.csv", sep=";", dec=",")
+#Import data from blob storage
+# https://cran.r-project.org/web/packages/AzureStor/AzureStor.pdf
+
+library(AzureStor)
+blob_cont <- blob_container("https://myblob.blob.core.windows.net/container", key="myKey")
+
+#in-mem operation
+rawvec <- download_blob(blob_cont, "data.csv", NULL)
+data <- read.csv(text=rawToChar(rawvec), sep=";", dec=",")
 
 # Compute more values from x variable in a helper dataframe
 data_helper <- NULL
