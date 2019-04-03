@@ -76,9 +76,13 @@ You may need to open up the port on the webserver on your own. Up to this point 
 
 a. Create ***Azure Container Registry*** in the Portal.
     
-b. Grab the login server for the registry from the Overview section (It should be format *www.<my_acr_name>.azurecr.io*)
+b. Log into the container registry
 
-c. Tag the docker image and push
+   i.       az acr login --name <my_acr_name>
+
+c. Grab the login server for the registry from the Overview section (It should be format *www.<my_acr_name>.azurecr.io*)
+
+d. Tag the docker image and push
     
    i.	Use ``` docker images ```  to get the image you wish
         
@@ -88,7 +92,7 @@ c. Tag the docker image and push
       ```
       docker push <my_acr_name>.azurecr.io/my_shinyapp:v1
       ```            
- d.	Verify the image has been pushed in the portal by looking under the Repositories for your app. (Or using Azure CLI commands)   
+ e.	Verify the image has been pushed in the portal by looking under the Repositories for your app. (Or using Azure CLI commands)   
  e.	Turning on permissions for the last step: In the Portal, navigate to the ***Access keys*** under ***Settings*** and click “Enable” under Admin user (this is necessary to log in with Docker). 
     
 12.	Deploy container via Azure Web App for Container.
